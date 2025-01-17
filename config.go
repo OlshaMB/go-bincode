@@ -1,13 +1,15 @@
-package gobincode;
+package gobincode
+
+import "encoding/binary"
 
 type Config struct {
-	LittleEndian bool
+	binary.ByteOrder
 	VariantIntEncoding bool
 }
 
 func DefaultConfig() *Config {
 	return &Config{
-		LittleEndian: true,
+		ByteOrder:          binary.LittleEndian,
 		VariantIntEncoding: true,
 	}
 }
